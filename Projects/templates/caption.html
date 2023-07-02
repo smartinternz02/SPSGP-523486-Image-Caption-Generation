@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caption Of Image</title>
+</head>
+<body>
+    <a href="http://127.0.0.1:5000">Home Page</a>
+    <div>
+        <img src="{{ url_for('static', filename=image_name) }}" alt="image"  width="500px" height="500px">
+        <p> {{ name }}</p>
+    </div>
+</body>
+</html>

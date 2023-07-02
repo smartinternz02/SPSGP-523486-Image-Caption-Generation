@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Image Caption Generator</title>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="center">
+        <div class="title">
+          <h1>Drop file to upload</h1>
+        </div>
+
+        <div class="dropzone">
+          <img
+            src="http://100dayscss.com/codepen/upload.svg"
+            class="upload-icon"
+          />
+          <input type="file" class="upload-input" />
+        </div>
+        <p class="filename"></p>
+
+        <button
+          type="button"
+          class="btn"
+          name="uploadbutton"
+          id="caption"
+          onclick="()=>console.log(5)"
+        >
+          Generate Caption
+        </button>
+      </div>
+    </div>
+    <!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
+
+    <script>
+      let input = document.getElementsByClassName("upload-input")[0];
+      let filename=document.getElementsByClassName("filename")[0];
+
+      // Add event listener for the 'change' event
+      input.addEventListener("change", ()=>{
+        let arr=input.value.split("\\");
+        filename.innerText=arr[arr.length-1];
+      });
+
+      document.getElementById("caption").addEventListener("click", () => {
+        if (!input.value) alert("Please upload an image");
+        //call the predict function
+        else{
+          let arr=input.value.split("\\");
+          let url="http://127.0.0.1:5000/caption?image="+arr[arr.length-1];
+          console.log(url);
+          window.open(url,"_blank");
+        }
+
+        input.value="";
+      });
+    </script>
+  </body>
+</html>
