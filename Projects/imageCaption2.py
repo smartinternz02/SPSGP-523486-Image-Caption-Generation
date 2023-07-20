@@ -14,10 +14,10 @@ from nltk.translate.bleu_score import corpus_bleu
 from PIL import Image
 import matplotlib.pyplot as plt
 features={}
-working_direc=r"C:\Users\Harsh singh\OneDrive\Desktop\New folder"
+working_direc=r"C:\Users\Gaurang\OneDrive\Desktop\New folder"
 with open(os.path.join(working_direc, 'features.pkl'), 'rb') as f:
     features = pickle.load(f)
-directory = r"C:\Users\Harsh singh\Downloads"
+directory = r"C:\Users\Gaurang\Downloads"
 with open(os.path.join(working_direc, 'captions.txt'), 'r') as f:
     next(f)
     captions_doc = f.read()
@@ -205,7 +205,7 @@ generate_caption("1001773457_577c3a7d70.jpg")
 vgg_model = VGG16()
 # restructure the model
 vgg_model = Model(inputs=vgg_model.inputs, outputs=vgg_model.layers[-2].output)
-image_path = r'C:\Users\Harsh singh\OneDrive\Desktop\New folder\kidcancylce.jpg'
+image_path = r'C:\Users\Gaurang\OneDrive\Desktop\New folder\kidcancylce.jpg'
 # load image
 image = load_img(image_path, target_size=(224, 224))
 # convert image pixels to numpy array
