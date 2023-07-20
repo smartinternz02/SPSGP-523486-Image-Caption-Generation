@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import Model
 
 features = {}
-directory = r"C:\Users\Harsh singh\Downloads\Images"
+directory = r"C:\Users\Gaurang\Downloads\Images"
 model = VGG16()
 # Restructure the model
 model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
@@ -29,5 +29,5 @@ for img_name in tqdm(os.listdir(directory)):
     image_id = img_name.split('.')[0]
     # Store feature
     features[image_id] = feature
-working_direc=r"C:\Users\Harsh singh\OneDrive\Desktop\New folder"
+working_direc=r"C:\Users\Gaurang\OneDrive\Desktop\New folder"
 pickle.dump(features, open(os.path.join(working_direc, 'features.pkl'), 'wb'))
